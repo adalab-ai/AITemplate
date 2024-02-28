@@ -79,6 +79,9 @@ def _detect_cuda():
     except ImportError:
         # go back to old way to detect the CUDA arch
         return _detect_cuda_with_nvidia_smi()
+    except RuntimeError:
+        # go back to old way to detect the CUDA arch
+        return _detect_cuda_with_nvidia_smi()
     except Exception:
         return None
 
